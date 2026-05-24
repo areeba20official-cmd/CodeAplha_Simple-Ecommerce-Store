@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<%- include('partials_header') %>
+
+<div class="container" style="margin-top:40px;">
+  <div class="card">
+    <img src="<%= product.image %>">
+    <div class="card-content">
+      <h2><%= product.name %></h2>
+      <p><%= product.description %></p>
+      <h3>$<%= product.price %></h3>
+
+      <form action="/cart/add/<%= product.id %>" method="POST">
+        <button class="btn">Add to Cart</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

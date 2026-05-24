@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<%- include('partials_header') %>
+
+<div class="container">
+  <h2>Your Cart</h2>
+
+  <% if(cart.length === 0){ %>
+    <p>Cart is empty.</p>
+  <% } %>
+
+  <% cart.forEach(item => { %>
+    <div class="cart-item">
+      <span><%= item.name %></span>
+      <span>$<%= item.price %></span>
+    </div>
+  <% }) %>
+
+  <h3>Total: $<%= total.toFixed(2) %></h3>
+
+  <% if(cart.length > 0){ %>
+  <form action="/checkout" method="POST">
+    <button class="btn">Checkout</button>
+  </form>
+  <% } %>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopEase</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<%- include('partials_header') %>
+
+<section class="hero">
+  <h1>Modern E-Commerce Store</h1>
+  <p>Shop trending gadgets and accessories</p>
+</section>
+
+<div class="container">
+  <div class="products">
+    <% products.forEach(product => { %>
+      <div class="card">
+        <img src="<%= product.image %>" alt="">
+        <div class="card-content">
+          <h3><%= product.name %></h3>
+          <p>$<%= product.price %></p>
+          <a class="btn" href="/product/<%= product.id %>">View Details</a>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<footer>© 2026 ShopEase</footer>
+</body>
+</html>
